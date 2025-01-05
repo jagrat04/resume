@@ -1,6 +1,20 @@
 import React from 'react';
+// import axios from 'axios';
 
 const Hero = () => {
+//   const [message, setMessage] = useState('');
+
+//   useEffect(() => {
+//     // Fetch data from the backend
+//     axios.get('http://localhost:5000/api/test')
+//       .then(response => {
+//         setMessage(response.data.message);
+//       })
+//       .catch(error => {
+//         console.error('Error fetching data:', error);
+//       });
+//   }, []);
+
   return (
     <div className="hero-section min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
       <div className="text-center">
