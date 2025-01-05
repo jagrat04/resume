@@ -1,22 +1,69 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleScroll = (id) => {
+    if (window.location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-5000 bg-gray-900 text-white shadow-lg w-full border-4 border-red-500">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold tracking-wide">
+        <div
+          className="text-2xl font-bold tracking-wide cursor-pointer"
+          onClick={() => handleScroll('home')}
+        >
           MyPortfolio
         </div>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
-          <a href="#home" className="hover:text-blue-400 transition">Home</a>
-          <a href="#about" className="hover:text-blue-400 transition">About</a>
-          <a href="#projects" className="hover:text-blue-400 transition">Projects</a>
-          <a href="#blog" className="hover:text-blue-400 transition">Blog</a>
-          <a href="#chat" className="hover:text-blue-400 transition">Chat</a>
-          <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
+          <button
+            onClick={() => handleScroll('home')}
+            className="hover:text-blue-400 transition"
+          >
+            Home
+          </button>
+          <button
+            onClick={() => handleScroll('about')}
+            className="hover:text-blue-400 transition"
+          >
+            About
+          </button>
+          <button
+            onClick={() => handleScroll('projects')}
+            className="hover:text-blue-400 transition"
+          >
+            Projects
+          </button>
+          <button
+            onClick={() => handleScroll('blog')}
+            className="hover:text-blue-400 transition"
+          >
+            Blog
+          </button>
+          <button
+            onClick={() => handleScroll('chat')}
+            className="hover:text-blue-400 transition"
+          >
+            Chat
+          </button>
+          <a
+            href="/contact"
+            className="hover:text-blue-400 transition"
+          >
+            Contact
+          </a>
         </nav>
 
         {/* Resume Button */}
@@ -33,5 +80,3 @@ const Header = () => {
 };
 
 export default Header;
-
-  
